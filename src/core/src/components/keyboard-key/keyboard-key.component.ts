@@ -201,20 +201,20 @@ export class MatKeyboardKeyComponent implements OnInit {
 
   private _triggerKeyEvent(): Event {
     const keyboardEvent = new KeyboardEvent('keydown');
-    //
-    // keyboardEvent[initMethod](
-    //   true, // bubbles
-    //   true, // cancelable
-    //   window, // viewArg: should be window
-    //   false, // ctrlKeyArg
-    //   false, // altKeyArg
-    //   false, // shiftKeyArg
-    //   false, // metaKeyArg
-    //   this.charCode, // keyCodeArg : unsigned long - the virtual key code, else 0
-    //   0 // charCodeArgs : unsigned long - the Unicode character associated with the depressed key, else 0
-    // );
-    //
-    // window.document.dispatchEvent(keyboardEvent);
+    
+    keyboardEvent[initMethod](
+      true, // bubbles
+      true, // cancelable
+      window, // viewArg: should be window
+      false, // ctrlKeyArg
+      false, // altKeyArg
+      false, // shiftKeyArg
+      false, // metaKeyArg
+      this.charCode, // keyCodeArg : unsigned long - the virtual key code, else 0
+      0 // charCodeArgs : unsigned long - the Unicode character associated with the depressed key, else 0
+    );
+
+    window.dispatchEvent(keyboardEvent);
 
     return keyboardEvent;
   }
